@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const screenSchema = new mongoose.Schema({
-    name : {type:"string", required: true},
+    name : {type:"String", required: true},
     theater_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"theater", required: true
