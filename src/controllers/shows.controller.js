@@ -15,4 +15,14 @@ router.get('/', async (req, res)=>{
         return res.status(500).json({message: err.message});
     }
 })
+router.get('/', async (req, res)=>{
+    try{
+        const shows = await show.find({location:{$eq: 'express'}}).lean().exec();
+
+        return res.send(shows)
+    }
+    catch(err){
+        return res.status(500).json({message: err.message});
+    }
+})
 module.exports = router;
