@@ -14,5 +14,15 @@ router.get('/', async (req, res)=>{
     catch(err){
         return res.status(500).json({message: err.message});
     }
+});
+
+router.post("/",async(req,res)=>{
+    try{
+    const seats = await Movie.create(req.body);
+    return res.status(201).json({ movie})
+    }
+    catch(err){
+        return res.status(500).json({statu :"failed",message:err.message});
+    }
 })
 module.exports = router;
